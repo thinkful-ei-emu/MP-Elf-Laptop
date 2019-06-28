@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.js';
 import OptionList from './components/OptionList.js';
-import PriceList from './components/PriceList';
 
 class App extends Component {
   constructor(props){
@@ -18,8 +17,8 @@ class App extends Component {
             cost: 200
           },
         "Video Card":{
-            name: 'Toyota Corolla 1.5v',
-            cost: 1150.98
+            name: 'Mind mild breeze 2000',
+            cost: 1345
           },
         Display: {
             name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
@@ -31,18 +30,25 @@ class App extends Component {
 
   updateFeature(feature, newValue) {
     const selected = Object.assign({}, this.state.selected);
+    //feature is the key 
+    //newValue is the object  
+    //setting the specific object to the newValue   
     selected[feature] = newValue;
+    //updating the state
     this.setState({
       selected
     });
   }
 
-  render() {   
+  render() { 
     return (
       <div className="App">
         <Header />
-        <OptionList updateFeature={(feature, newValue) => this.updateFeature(feature, newValue)} features={this.props.features}/>
-        <PriceList />
+        <OptionList 
+        features={this.props.features}
+        selected={this.state.selected}
+        updateFeature = {this.updateFeature}
+        />
       </div>
     );
   }
