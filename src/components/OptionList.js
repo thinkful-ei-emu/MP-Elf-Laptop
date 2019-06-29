@@ -10,7 +10,7 @@ function OptionList (props) {
       const featureClass = 'feature__option ' + selectedClass;
       
       return <li key={index} className="feature__item">
-        <div className={featureClass} onClick={e => props.updateFeature(key, item)}>
+        <div className={featureClass} onClick={() => props.updateFeature(key, item)}>
             { item.name }
             
             {/* cost in US currency*/}

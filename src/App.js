@@ -26,15 +26,13 @@ class App extends Component {
           }
       }
     }
+    //binding this to the function no matter where the function gets called.
+    this.updateFeature = this.updateFeature.bind(this)
   }
 
   updateFeature(feature, newValue) {
-    const selected = Object.assign({}, this.state.selected);
-    //feature is the key 
-    //newValue is the object  
-    //setting the specific object to the newValue   
+    const selected = Object.assign({}, this.state.selected);  
     selected[feature] = newValue;
-    //updating the state
     this.setState({
       selected
     });
