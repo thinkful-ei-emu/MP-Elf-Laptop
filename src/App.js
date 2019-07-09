@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.js';
-import OptionList from './components/OptionList.js';
+import MainList from './components/MainForm.js';
+import PriceList from './components/MainSummary';
 
 class App extends Component {
   constructor(props){
@@ -26,7 +27,6 @@ class App extends Component {
           }
       }
     }
-    //binding this to the function no matter where the function gets called.
     this.updateFeature = this.updateFeature.bind(this)
   }
 
@@ -42,10 +42,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <OptionList 
+        <MainList 
         features={this.props.features}
         selected={this.state.selected}
         updateFeature = {this.updateFeature}
+        />
+        <PriceList 
+        selected={this.state.selected}
         />
       </div>
     );

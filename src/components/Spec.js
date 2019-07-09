@@ -1,8 +1,6 @@
-import React from 'react';
-import PriceList from './PriceList';
+import React from 'react'
 
-function OptionList (props) {
-
+function Spec(props) {
   const features = Object.keys(props.features)
   .map(key => {
     const options = props.features[key].map((item, index) => {
@@ -12,8 +10,6 @@ function OptionList (props) {
       return <li key={index} className="feature__item">
         <div className={featureClass} onClick={() => props.updateFeature(key, item)}>
             { item.name }
-            
-            {/* cost in US currency*/}
             ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
               .format(item.cost) })
         </div>
@@ -26,20 +22,14 @@ function OptionList (props) {
         { options }
       </ul>
     </div>
-  });  
-  
+  }); 
+
   return (
-    <section className="main__form">
-      <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-      <ul>
+      <div>
         {features}
-      </ul>
-      <PriceList
-      selected={props.selected}
-      />
-    </section>
-  )
+      </div>
+     )
 
 }
 
-export default OptionList 
+export default Spec
