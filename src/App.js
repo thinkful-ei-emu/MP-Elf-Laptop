@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.js';
-import MainList from './components/MainForm.js';
+import MainForm from './components/MainForm.js';
 import PriceList from './components/MainSummary';
 
 class App extends Component {
@@ -42,7 +42,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <MainList 
+        <main>
+        <MainForm 
         features={this.props.features}
         selected={this.state.selected}
         updateFeature = {this.updateFeature}
@@ -50,6 +51,7 @@ class App extends Component {
         <PriceList 
         selected={this.state.selected}
         />
+        </main>
       </div>
     );
   }
